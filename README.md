@@ -763,7 +763,7 @@ class ExampleView(APIView):
 
 Includes basic, digest, and token auth, but there doesn't seem to be much documentation on how to use them.
 
-Popular third-party solutions exist, such as devise, although it only handles HTTP basic auth if you're using Rails API mode.
+Popular third-party solutions exist, such as devise, although by default it only handles HTTP basic auth if you're using Rails API mode.
 
 ## Authorization
 
