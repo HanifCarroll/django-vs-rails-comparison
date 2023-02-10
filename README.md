@@ -6,6 +6,8 @@ This document compares the Django and Ruby on Rails webframeworks. The accompany
 
 The purpose of this documen is to outline how each framework handles common tasks related to creating a web application. These comparisons will hopefully inform the reader on which framework they would prefer to use.
 
+Contributions to this document are appreciated.
+
 ## Scaffolding
 
 ### Django
@@ -243,6 +245,30 @@ Uses Serializers in order to map the object to JSON.
 ```python
 from django.core import serializers
 data = serializers.serialize("json", SomeModel.objects.all())
+```
+
+```python
+from datetime import datetime
+from rest_framework import serializers
+
+class Comment:
+    def __init__(self, email, content, created=None):
+        self.email = email
+        self.content = content
+        self.created = created or datetime.now()
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comment
+        fields = ['email', 'content', 'created']
+
+
+comment = Comment(email='leila@example.com', content='foo bar')
+serializer = CommentSerializer(comment)
+serializer.data
+# {'email': 'leila@example.com', 'content': 'foo bar', 'created': '2016-01-27T15:17:10.375877'}
+
 ```
 
 ### Rails
