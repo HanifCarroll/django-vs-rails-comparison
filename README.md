@@ -526,7 +526,7 @@ class AccountTests(APITestCase):
         data = {'username': 'lauren'}
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-  self.assertEqual(response.data, {'id': 1, 'username': 'lauren'})
+        self.assertEqual(response.data, {'id': 1, 'username': 'lauren'})
         self.assertEqual(Account.objects.count(), 1)
         self.assertEqual(Account.objects.get().username, 'lauren')
 ```
