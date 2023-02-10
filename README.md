@@ -186,7 +186,7 @@ Django's `ModelForm` class runs the validation or you can call the instance's `f
 
 ### Rails
 
-Validators are classes with a validate method that attach to the model.
+Validators are either classes with a validate method that attach to the model or methods directly on the model instance.
 
 ```ruby
 class MyValidator < ActiveModel::Validator
